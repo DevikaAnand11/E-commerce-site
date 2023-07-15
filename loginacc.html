@@ -1,0 +1,146 @@
+<!--<?php
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+if($_SERVER['REQUEST_METHOD']=="POST")
+{
+ //Something was posted
+ $user_name=$_POST['user_name'];
+ $password = $_POST['password'];
+ if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+ {
+    //read from database
+    $query="select*from users where user_name = '$user_name' limit 1";
+
+    $result=mysqli_query($con,$query);
+
+    mysqli_query($con,$query);
+    if($result)
+    {
+        if($result && mysqli_num_rows($result)>0)
+        {
+            $user_data=mysqli_fetch_assoc($result);
+            if($user_data['password'] === $password)
+            {
+            $_SESSION['user_id'] = $user_data['user-id'];
+
+            header("Location:userprofile.php");
+            die;
+           }
+        } 
+    }
+ echo"Please enter a valid information!";
+}
+ else{
+     echo"Please enter a valid information";
+    }
+}
+?>-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>
+		body {
+			
+			background-image:url("https://images.unsplash.com/photo-1573848953384-3be02021eb0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9naW4lMjBwYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60");
+			font-family: Arial, sans-serif;
+			background-repeat: no-repeat;
+			background-size:cover;
+			
+		}
+
+		.container {
+			width: 400px;
+			margin: 50px auto;
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 5px;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;			
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+			box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+		}
+
+		.button {
+  width: 110px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: rgb(161, 255, 20);
+  border-radius: 30px;
+  color: rgb(19, 19, 19);
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: .2s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  transition-duration: .5s;
+}
+
+.svgIcon {
+  height: 25px;
+  transition-duration: 1.5s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: rgb(192, 255, 20);
+  transition-duration: .5s;
+}
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: .2s;
+}
+
+.button:hover .svgIcon {
+  transform: rotate(250deg);
+  transition-duration: 1.5s;
+}
+
+
+	</style>
+</head>
+<body>
+	<br><br><br><br><br><br><br><br><br><br>
+	<div class="container">
+		<h1>Login</h1>
+		<form action="" method="post">
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="user_name" placeholder="Enter your username" autocomplete="off"><br>
+			<label for="password">Password:</label><br>
+			<input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+			<button class="button"><a href="userprofile.html" style="text-decoration:none; color:black">
+   <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+  Login</a>
+</button>
+
+            <!--<a href="signup.php">Click to Signup</a>-->
+		</form>
+	</div>
+
+</body>
+</html>

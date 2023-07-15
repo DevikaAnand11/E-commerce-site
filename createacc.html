@@ -1,0 +1,106 @@
+<!--<?php
+session_start();
+
+   include("connection.php");
+   include("functions.php");
+
+   if($_SERVER['REQUEST_METHOD']=="POST")
+   {
+    Something was posted
+    $user_name=$_POST['user_name'];
+    $password = $_POST['password'];
+    if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+    {
+       save to database
+       $user_id=random_num(20);
+       $query="insert into users(user_id,user_name,password) values('$user_id','$user_name','$password')";
+
+       mysqli_query($con,$query);
+
+       header("Location:summafile.php");
+       die;
+    }else{
+        echo"Please enter a valid information";
+    }
+   }
+?>-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-image:url('https://media.istockphoto.com/id/1505412246/photo/flying-green-leaves-on-transparent-free-png-background-environment-and-ecology-backdrop.webp?b=1&s=170667a&w=0&k=20&c=_fXj-6EVaGzFQMA7IkDGroK_NmLC641raWxGtt4_qfQ=');
+			background-size:cover;
+            background-repeat: no-repeat;
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			width: 400px;
+			margin: 0px auto;
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 55px;
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+		}
+
+		button {
+ border: 2px solid #24b4fb;
+ background-color: #24b4fb;
+ border-radius: 0.9em;
+ padding: 0.8em 1.2em 0.8em 1em;
+ transition: all ease-in-out 0.2s;
+ font-size: 16px;
+}
+
+button span {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #fff;
+ font-weight: 600;
+}
+
+button:hover {
+ background-color: #0071e2;
+}
+
+	</style>
+</head>
+<body><br><br><br><br><br><br><br><br>
+	<div class="container">
+	<!--<img src="logo/loginpic.png" alt="picture" width="100%" height="100%">-->
+		<h1><u>CREATE ACCOUNT</u></h1>
+		<form action="" method="post">
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="user_name" placeholder="Enter your username"><br>
+			<label for="password">Password:</label><br>
+			<input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+
+			<button>
+				<a href="summafile.html" style="text-decoration:none;color:black">
+  <span>
+	    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> 
+        <a href="summafile.html" style="text-decoration:none;color:white">Create</a>
+  </span>
+</button>
+</body>
+</html>
